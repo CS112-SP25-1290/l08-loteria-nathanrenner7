@@ -1,12 +1,14 @@
 package edu.miracosta.cs112.lotaria;
 
 import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
-import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
+import java.io.IOException;
+
 public class HelloApplication extends Application {
-    private static final LoteriaCard[] LOTERIA_CARDS = {
+    public static final LoteriaCard[] LOTERIA_CARDS = {
             new LoteriaCard("Las matematicas", "1.png", 1),
             new LoteriaCard("Las ciencias", "2.png", 2),
             new LoteriaCard("La Tecnología", "8.png", 8),
@@ -14,11 +16,11 @@ public class HelloApplication extends Application {
     };
 
     @Override
-    public void start(Stage stage) {
-        StackPane root = new StackPane();
-        Scene scene = new Scene(root, 320, 240);
+    public void start(Stage stage) throws IOException {
+        FXMLLoader fxmlLoader = new FXMLLoader(HelloApplication.class.getResource("/edu/miracosta/cs112/lotaria/loteriaintellij/hello-view.fxml"));
+        Scene homeScreen = new Scene(fxmlLoader.load(), 900, 900);
         stage.setTitle("Loteria!");
-        stage.setScene(scene);
+        stage.setScene(homeScreen);
         stage.show();
     }
 

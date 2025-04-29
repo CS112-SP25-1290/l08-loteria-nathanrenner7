@@ -50,7 +50,7 @@ public class LoteriaCard {
 
     //default constructor creates false loteria card (like Joker cards in a 52 card standard deck)
     public LoteriaCard() {
-        this("EChALE STEM Logo", "0.png", 0);
+        this("EChALE STEM Logo", "edu/miracosta/cs112/lotaria/loteriaintellij/0.png", 0);
     }
 
     // get/set methods
@@ -80,9 +80,9 @@ public class LoteriaCard {
     public Image getImage() {
         FileInputStream input = null;
         try {
-            input = new FileInputStream("file:./resources/" + this.imageName);
+            input = new FileInputStream("src/main/resources/edu/miracosta/cs112/lotaria/loteriaintellij/" + this.imageName);
         } catch (FileNotFoundException e) {
-            //e.printStackTrace();
+            e.printStackTrace();
             System.err.println("ERROR: could not open file.");
             System.exit(0);
         }
